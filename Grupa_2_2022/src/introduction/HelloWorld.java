@@ -45,7 +45,7 @@ public class HelloWorld {
 		System.out.println(faktorijel);
 		
 		
-		//3. Zadatak  
+		//3. Zadatak 
 		for(int j = 1; j<=10; j++) {
 			if(j%2==1) {
 				System.out.println(j);
