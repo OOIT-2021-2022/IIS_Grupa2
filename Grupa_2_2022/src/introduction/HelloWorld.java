@@ -22,7 +22,7 @@ public class HelloWorld {
 		System.out.println(alwaysTrue || alwaysFalse);
 		System.out.println(!alwaysTrue);
 
-		// 1. zadatak
+		// 1. Zadatak
 		System.out.println("Prvi zadatak");
 		int a = 24;
 		int b = 12;
@@ -36,7 +36,7 @@ public class HelloWorld {
 		else
 			System.out.println(a * b);
 		
-		//2. zadatak
+		//2. Zadatak
 		int faktorijel = 1;
 		for (int i = 5; i>1; i--)
 		{
@@ -45,7 +45,7 @@ public class HelloWorld {
 		System.out.println(faktorijel);
 		
 		
-		//3. zadatak 
+		//3. Zadatak 
 		for(int j = 1; j<=10; j++) {
 			if(j%2==1) {
 				System.out.println(j);
