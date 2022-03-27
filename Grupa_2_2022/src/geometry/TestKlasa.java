@@ -46,10 +46,10 @@ public class TestKlasa {
 		p.setX(p1.getY());
 
 		// 2. Postaviti za pocetnu tacku linije l1 tacku p, a
-		// za krajnju tacku linije l1 tacku p1		
-		//l1.setStartPoint(p);
-		//l1.setEndPoint(p1);
-		
+		// za krajnju tacku linije l1 tacku p1
+		// l1.setStartPoint(p);
+		// l1.setEndPoint(p1);
+
 		// 3. Postaviti y koordinatu krajnje tacke l1 na 23
 		l1.getEndPoint().setY(23);
 
@@ -60,7 +60,7 @@ public class TestKlasa {
 		// 5. Postaviti x koordinatu krajnje tacke l1 na vrednost
 		// duzine linije l1 umanjene za vrednost zbira x i y
 		// koordinate pocetne tacke linije l1
-		l1.getEndPoint().setX((int)(l1.length()-l1.getStartPoint().getX()-l1.getStartPoint().getY()));
+		l1.getEndPoint().setX((int) (l1.length() - l1.getStartPoint().getX() - l1.getStartPoint().getY()));
 
 		// 6. Postaviti x koordinatu tacke gore levo pravougaonika
 		// r1 na vrednost 10 i y koordinatu na vrednost 15
@@ -74,7 +74,16 @@ public class TestKlasa {
 
 		// 8. Postaviti x koordinatu centra kruga c1 na vrednost razlike
 		// povrsine pravougaonika r1 i y koordinate pocetne tacke linije l1
-		c1.getCenter().setX(r1.area()-l1.getStartPoint().getY());
+		c1.getCenter().setX(r1.area() - l1.getStartPoint().getY());
+
+		// Vezbe 4
+		/*
+		 * 1.Postaviti koordinatu x centra ranije kreiranog kruga k na vrednost zbira
+		 * vrednosti poluprecnika kruga k i vrednosti koja predstavlja udaljenost
+		 * pocetne i krajnje tacke prethodno kreirane linije lin (NE duzine). Sve
+		 * objekte kreirati samostalno.
+		 */
+
 	}
 
 }
