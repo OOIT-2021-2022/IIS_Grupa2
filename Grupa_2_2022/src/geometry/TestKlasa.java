@@ -83,6 +83,30 @@ public class TestKlasa {
 		 * pocetne i krajnje tacke prethodno kreirane linije lin (NE duzine). Sve
 		 * objekte kreirati samostalno.
 		 */
+		Circle c2=new Circle();
+		c2.setRadius(5);
+		Line lin=new Line();
+		Point t1=new Point();
+		Point t2=new Point();
+		t1.setX(3);
+		t1.setY(4);
+		t2.setX(5);
+		t2.setY(6);
+		lin.setStartPoint(t1);
+		lin.setEndPoint(t2);
+		
+		c2.setCenter(t1);
+		
+		c2.getCenter().setX(c2.getRadius()+ 
+				(int)lin.getStartPoint().distance(lin.getEndPoint().getX(),lin.getEndPoint().getY()));
+		
+		
+		
+		
+		
+		
+		
+		
 
 	}
 
