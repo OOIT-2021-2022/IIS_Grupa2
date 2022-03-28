@@ -111,6 +111,8 @@ public class TestKlasa {
 		System.out.println(lin);
 		
 		System.out.println(t1.equals(t2));
+		
+		//ZADATAK - testirati konstruktore, toString() i equals(...) metode
 
 	}
 
