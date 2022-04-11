@@ -2,7 +2,7 @@ package geometry;
 
 public class Circle {
 	private Point center;
-	private int radius;
+	protected int radius;
 	private boolean selected;
 
 	public Circle() {
@@ -30,6 +30,14 @@ public class Circle {
 		} else {
 			return false;
 		}
+	}
+	
+	public boolean contains(int x, int y) {
+		return this.center.distance(x, y) <= radius;
+	}
+	
+	public boolean contains(Point clickPoint) {
+		return this.center.distance(clickPoint.getX(), clickPoint.getY()) <= radius;
 	}
 
 	public double area() {
@@ -59,6 +67,14 @@ public class Circle {
 	public String toString() {
 		// Center=(x,y), radius= radius
 		return "Center=" + center + ", radius=" + radius;
+	}
+
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
 	}
 
 }

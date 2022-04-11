@@ -28,8 +28,8 @@ public class Point {
 
 		if (obj instanceof Point) {
 			Point pomocna = (Point) obj;
-			
-			if(this.x==pomocna.x && this.y==pomocna.y) {
+
+			if (this.x == pomocna.x && this.y == pomocna.y) {
 				return true;
 			}
 		}
@@ -41,6 +41,14 @@ public class Point {
 		double dy = this.y - yPoint2;
 		double d = Math.sqrt(dx * dx + dy * dy);
 		return d;
+	}
+
+	public boolean contains(int x, int y) {
+		return this.distance(x, y) <= 2;
+	}
+	
+	public boolean contains(Point clickPoint) {
+		return this.distance(clickPoint.x, clickPoint.y) <= 2;
 	}
 
 	public int getX() {

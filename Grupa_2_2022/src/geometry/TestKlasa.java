@@ -105,14 +105,27 @@ public class TestKlasa {
 		// samo kad zelimo promenu
 		p4.setX(20);
 
-		//pre redefinisanja metode u Line, a posle redefinisanja u Point
+		// pre redefinisanja metode u Line, a posle redefinisanja u Point
 		System.out.println(p4.toString());
 		System.out.println(p4);
 		System.out.println(lin);
-		
+
 		System.out.println(t1.equals(t2));
+
+		// ZADATAK - testirati konstruktore, toString() i equals(...) metode
+
+		// vezbe 5
+
+		Point clickPoint = new Point(20, 15);
+		System.out.println(p4.contains(clickPoint));
+		System.out.println(p4.contains(clickPoint.getX(), clickPoint.getY()));
 		
-		//ZADATAK - testirati konstruktore, toString() i equals(...) metode
+		Donut donut = new Donut(clickPoint, 10, 5, true);
+		System.out.println(donut.toString());
+		System.out.println(donut.area());
+		System.out.println(donut instanceof Circle);
+		System.out.println(donut instanceof Donut);
+		System.out.println(c2 instanceof Donut);
 
 	}
 
