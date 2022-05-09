@@ -54,6 +54,15 @@ public class Donut extends Circle {
 		g.drawOval(getCenter().getX()-innerRadius, getCenter().getY()-innerRadius,
 				2*innerRadius, 2*innerRadius);
 	}
+	
+	@Override
+	public int compareTo(Object obj) {
+		if(obj instanceof Donut) {
+			Donut shapeToCompare = (Donut)obj;
+			return (int)(this.area() - shapeToCompare.area());
+		}
+		return 0;
+	}
 
 	public int getInnerRadius() {
 		return innerRadius;

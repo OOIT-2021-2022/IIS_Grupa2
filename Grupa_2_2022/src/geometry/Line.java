@@ -48,6 +48,27 @@ public class Line extends Shape{
 		g.drawLine(this.startPoint.getX(), this.startPoint.getY(),
 				endPoint.getX(), endPoint.getY());
 	}
+	
+	@Override
+	public void moveTo(int x, int y) {
+		startPoint.moveTo(x, y);
+		endPoint.moveTo(x, y);
+	}
+
+	@Override
+	public void moveBy(int x, int y) {
+		startPoint.moveBy(x, y);
+		endPoint.moveBy(x, y);		
+	}
+	
+	@Override
+	public int compareTo(Object obj) {
+		if(obj instanceof Line) {
+			Line shapeToCompare = (Line)obj;
+			return (int)(this.length() - shapeToCompare.length());
+		}
+		return 0;
+	}
 
 	// metode pristupa - get, set
 	// modifikator pristupa - public, private
