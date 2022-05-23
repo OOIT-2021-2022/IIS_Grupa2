@@ -86,7 +86,7 @@ public class TestKlasa {
 		 * objekte kreirati samostalno.
 		 */
 		Circle c2 = new Circle();
-		c2.setRadius(5);
+		//c2.setRadius(5);
 		Line lin = new Line();
 		Point t1 = new Point();
 		Point t2 = new Point();

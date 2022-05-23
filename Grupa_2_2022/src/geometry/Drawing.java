@@ -67,6 +67,28 @@ public class Drawing extends JPanel {
 		shapes.get(3).draw(g);
 
 		shapes.add(3, l1);
+		
+		//Exception
+		try {
+			c1.setRadius(-10);
+			System.out.println("try");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		it = shapes.iterator();
+		while (it.hasNext()) {
+			Shape sh = it.next();
+			sh.moveBy(10, 0);
+			sh.setSelected(true);
+			sh.draw(g);
+		}
+		
+		
+		
+		
+		
+		
 
 	}
 }
