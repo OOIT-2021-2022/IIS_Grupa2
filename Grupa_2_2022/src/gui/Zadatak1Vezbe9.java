@@ -33,6 +33,8 @@ public class Zadatak1Vezbe9 extends JFrame {
 	private JLabel lblPlava;
 	private JLabel lblZuta;
 	private DefaultListModel<String> dlm = new DefaultListModel<String>();
+	private JList<String> listColor;
+	private DlgAddModifyColor dlgColor;
 
 	/**
 	 * Launch the application.
@@ -121,6 +123,30 @@ public class Zadatak1Vezbe9 extends JFrame {
 		gbc_lblPlava.gridy = 1;
 		pnlCenter.add(lblPlava, gbc_lblPlava);
 		
+		JButton btnDodajBoju = new JButton("Dodaj boju");
+		btnDodajBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dlgColor = new DlgAddModifyColor();
+				dlgColor.setVisible(true);
+				
+				if (dlgColor.isOk()) {
+					String color = dlgColor.getTxtRed().getText() + " " + dlgColor.getTxtGreen().getText() + " "
+							+ dlgColor.getTxtBlue().getText();
+					dlm.addElement(color);
+					
+					Color colorPnlCenter = new Color(Integer.parseInt(dlgColor.getTxtRed().getText()),
+							Integer.parseInt(dlgColor.getTxtGreen().getText()),
+							Integer.parseInt(dlgColor.getTxtBlue().getText()));
+					pnlCenter.setBackground(colorPnlCenter);
+				}
+			}
+		});
+		GridBagConstraints gbc_btnDodajBoju = new GridBagConstraints();
+		gbc_btnDodajBoju.insets = new Insets(0, 0, 5, 0);
+		gbc_btnDodajBoju.gridx = 2;
+		gbc_btnDodajBoju.gridy = 1;
+		pnlCenter.add(btnDodajBoju, gbc_btnDodajBoju);
+		
 		lblZuta = new JLabel("Zuta");
 		GridBagConstraints gbc_lblZuta = new GridBagConstraints();
 		gbc_lblZuta.insets = new Insets(0, 0, 5, 5);
@@ -145,6 +171,43 @@ public class Zadatak1Vezbe9 extends JFrame {
 		gbc_tglbtnZuta.gridy = 2;
 		pnlCenter.add(tglbtnZuta, gbc_tglbtnZuta);
 		
+		JButton btnIzmeniBoju = new JButton("Izmeni boju");
+		btnIzmeniBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dlgColor = new DlgAddModifyColor();
+				if(listColor.isSelectionEmpty()) {
+					JOptionPane.showMessageDialog(null, "Selektuj boju",
+							"Poruka", JOptionPane.INFORMATION_MESSAGE);
+				}
+				else{
+					int index = listColor.getSelectedIndex();
+					String selectedValue = dlm.get(index);
+					String[] colorsRGB = selectedValue.split(" ");
+					dlgColor.getTxtRed().setText(colorsRGB[0]);
+					dlgColor.getTxtGreen().setText(colorsRGB[1]);
+					dlgColor.getTxtBlue().setText(colorsRGB[2]);
+					dlgColor.setVisible(true);
+					
+					if (dlgColor.isOk()) {
+						dlm.remove(index);
+						String color = dlgColor.getTxtRed().getText() + " " + dlgColor.getTxtGreen().getText() + " "
+								+ dlgColor.getTxtBlue().getText();
+						dlm.add(index, color);
+						
+						Color colorPnlCenter = new Color(Integer.parseInt(dlgColor.getTxtRed().getText()),
+								Integer.parseInt(dlgColor.getTxtGreen().getText()),
+								Integer.parseInt(dlgColor.getTxtBlue().getText()));
+						pnlCenter.setBackground(colorPnlCenter);
+					}
+				}
+			}
+		});
+		GridBagConstraints gbc_btnIzmeniBoju = new GridBagConstraints();
+		gbc_btnIzmeniBoju.insets = new Insets(0, 0, 5, 0);
+		gbc_btnIzmeniBoju.gridx = 2;
+		gbc_btnIzmeniBoju.gridy = 2;
+		pnlCenter.add(btnIzmeniBoju, gbc_btnIzmeniBoju);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
@@ -152,7 +215,7 @@ public class Zadatak1Vezbe9 extends JFrame {
 		gbc_scrollPane.gridy = 3;
 		pnlCenter.add(scrollPane, gbc_scrollPane);
 		
-		JList<String> listColor = new JList<String>();
+		listColor = new JList<String>();
 		listColor.setModel(dlm);
 		scrollPane.setViewportView(listColor);
 		
